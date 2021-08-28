@@ -9,6 +9,39 @@
 }
 
 body {
+    background: linear-gradient(300deg, #94d5f6, #5aa4cd);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
     font-family: "Noto Sans JP", "sans-serif";
     margin: 0;
+}
+
+/* Search Bar */
+input {
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px rgba(0,0,0,0.2);
+    font-family: inherit;
+    padding: 1rem;
+    min-width: 300px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.weather {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.weather h2 {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    
 }
