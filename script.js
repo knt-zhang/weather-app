@@ -1,4 +1,4 @@
-const apikey = "";
+const apikey = "aca5fdfc64f4e76a596d83c5540f084f";
 
 const main = document.getElementById('main');
 const form = document.getElementById('form');
@@ -12,7 +12,7 @@ async function getWeatherByLocation(city){
     const response = await fetch(url(city));
     const responseData = await response.json();
 
-    // console.log(responseData, KtoF(responseData.main.temp));
+    console.log(responseData, KtoF(responseData.main.temp));
 
     addWeatherToPage(responseData);
 }
@@ -23,7 +23,10 @@ function addWeatherToPage(data){
     weather.classList.add('weather');
 
     weather.innerHTML = `
-        <h2><img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png"/> ${temp}°F</h2>
+        <h2><img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png"/>
+        ${temp}°F
+        </h2>
+        <small>${data.weather[0].main}</small>
     `;
 
     main.innerHTML = '';
@@ -31,11 +34,11 @@ function addWeatherToPage(data){
 }
 
 function KtoF(K){
-    return ((K - 273.15) * 9/5 + 32).toFixed(2);
+    return Math.floor(K - 273.15) * 9/5 + 32;
 }
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault(); // prevents submitting the form
+    e.preventDefault(); // prevents submission of the form
 
     const city = search.value;
     if(city){
